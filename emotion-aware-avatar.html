@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="从多模态情感感知角度理解数字人驱动的技术博客。" />
+  <title>从“会动”到“有情绪”：我对多模态情感感知数字人的理解 | Yayun Xiao</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="masthead">
+    <div class="masthead-inner">
+      <a class="site-title" href="index.html">Yayun Xiao</a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#research">Research</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="index.html#education">Education</a>
+        <a href="index.html#awards">Awards</a>
+        <a href="index.html#writing">Writing</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="article-shell">
+    <article class="content">
+      <header class="article-header">
+        <a class="back-link" href="index.html#writing">&larr; 返回主页</a>
+        <p class="meta">AI · 三维视觉 · 数字人 · 多模态生成</p>
+        <h1>从“会动”到“有情绪”：我对多模态情感感知数字人的理解</h1>
+        <p class="article-summary">
+          这篇博客结合我在数字人相关项目中的学习经历，梳理我对多模态情感感知、视频压缩与数字人驱动之间关系的理解。
+        </p>
+      </header>
+
+      <section>
+        <h2>1. 为什么数字人不应只追求“动作正确”</h2>
+        <p>刚开始接触数字人驱动时，我最直观的理解是：如果嘴型对得上语音、表情能够变化、手势能够跟随语义，那么系统就已经比较完整。但在复现和调试模型的过程中，我逐渐意识到，数字人真正难的地方不是“让它动起来”，而是让不同模态的变化在时间上、语义上和情绪上保持一致。</p>
+        <p>例如，同一句话在平静、兴奋或犹豫的情绪下，应该对应不同的语速、面部肌肉变化和身体姿态。如果模型只根据音频生成嘴型，或者只根据文本生成手势，就可能出现局部正确但整体不自然的结果。因此，我认为数字人驱动的核心问题之一，是如何把语音、文本、表情、姿态和上下文共同建模。</p>
+      </section>
+
+      <section>
+        <h2>2. 多模态情感感知的关键：对齐与约束</h2>
+        <p>多模态系统通常会面对两个挑战。第一是对齐：不同模态的采样频率、信息密度和延迟并不一致。音频是连续信号，文本是离散符号，表情和姿态又对应三维或高维参数。要让系统生成自然的数字人，需要把这些信号映射到可比较、可融合的表示空间中。</p>
+        <p>第二是约束：生成模型往往具有很强的表达能力，但如果缺少约束，就可能生成视觉上流畅却语义不合适的动作。例如，悲伤语境下出现过于夸张的手势，或者严肃表达中出现不匹配的微笑，都会破坏交互可信度。因此，情绪信息不应只是一个额外标签，而应该作为生成过程中的条件约束，影响表情强度、动作幅度和节奏。</p>
+      </section>
+
+      <section>
+        <h2>3. 视频压缩与数字人驱动之间的联系</h2>
+        <p>从表面上看，视频压缩和数字人生成像是两个不同任务：前者关心如何减少传输和存储成本，后者关心如何生成自然的视觉结果。但在多模态数字人场景中，它们可以被放到同一个系统目标下思考：我们不一定需要传输每一帧的完整像素，而是可以提取更紧凑的语义、情绪和运动表征，再在接收端重建或驱动数字人。</p>
+        <p>这种思路让我感受到，压缩并不只是“减少数据量”，也可以被理解为“保留对交互最重要的信息”。对数字人而言，最重要的信息可能不是背景中的每一个纹理细节，而是说话者的情绪变化、口型节奏、眼神方向和姿态意图。如何在压缩率、重建质量和交互自然度之间取得平衡，是一个很有研究价值的问题。</p>
+      </section>
+
+      <section>
+        <h2>4. 我目前的实践收获</h2>
+        <p>在项目实践中，我参与过音频生成、手势生成模型微调、唇形同步、视频合成、训练和推理测试等模块。这些工作让我认识到，一个看似完整的 demo 背后往往有很多工程细节：数据格式是否统一、推理脚本是否稳定、不同模块输出是否可接入下一阶段、模型生成失败时如何定位问题等。</p>
+        <p>对我来说，研究训练最大的收获是建立了“从论文到系统”的意识。阅读论文可以理解方法的动机和公式，复现代码能暴露实现细节，而把模型接入交互原型则会进一步检验方法是否真的好用。这也是我希望继续深入 AI/3D Vision 和数字人方向的原因。</p>
+      </section>
+
+      <section>
+        <h2>5. 未来想继续思考的问题</h2>
+        <ul>
+          <li>如何设计更稳定的多模态对齐机制，让音频、文本、表情和姿态在时间上自然同步？</li>
+          <li>如何评价数字人的“情绪自然度”，而不仅仅使用重建误差或视觉相似度？</li>
+          <li>如何把研究模型包装成可交互、可测试、可迭代的用户原型？</li>
+          <li>如何在模型能力、推理速度和部署成本之间做工程取舍？</li>
+        </ul>
+        <p>我目前的理解还在形成过程中，但我认为这些问题体现了数字人研究的魅力：它既需要数学建模和生成模型，也需要工程实现和用户体验视角。未来我希望继续沿着这一方向，把“生成一个人像”推进到“构建一个可信、自然、可交互的数字伙伴”。</p>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Yayun Xiao. <a href="index.html">Back to homepage</a></p>
+  </footer>
+</body>
+</html>
