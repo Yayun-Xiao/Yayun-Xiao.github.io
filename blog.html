@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Yayun Xiao</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav class="site-nav">
+                <a href="index.html">Home</a>
+                <a href="blog.html" class="active">Blog</a>
+            </nav>
+        </header>
+
+        <main>
+            <div class="blog-header">
+                <h1>Rethinking Video Compression Through the Lens of Digital Avatars</h1>
+                <div class="blog-meta">May 21, 2026 &mdash; Technical Reflection</div>
+            </div>
+
+            <article class="blog-content">
+                <p>As digital avatars and talking-head generation models transition from academic curiosities to production-ready systems, a fascinating paradox has emerged in how we handle video data. Traditional video compression algorithms treat frames as arrays of pixels to be squeezed through mathematically rigorous, but structurally agnostic, transformation pipelines. Yet, when the subject of the video is a human face, this generic approach often destroys the very nuances—micro-expressions, gaze shifts, and subtle lip geometries—that make the interaction feel authentic.</p>
+
+                <p>During my recent exploration of frameworks like <em>SumTalk</em>, <em>TalkSummary</em>, and <em>CineTalk</em>, I realized that the intersection of multimodal emotion conditioning and video compression is not just an optimization problem; it's a semantic one. When we synthesize a talking head, we are essentially driving a 3D Morphable Model (3DMM) or a neural radiance field with high-level control signals: audio features, emotion vectors, and identity latents.</p>
+
+                <blockquote>
+                    If we know exactly what signals generated the avatar's appearance, why do we discard this semantic knowledge and compress the resulting pixels using traditional codecs?
+                </blockquote>
+
+                <p>This question lies at the heart of multimodal emotion-aware video compression. Instead of transmitting dense pixel streams, a more elegant pipeline transmits the underlying generative priors. By extracting and compressing the driving signals (like SMPL parameters, audio embeddings, and emotion conditioning vectors), the receiver can synthesize the video locally. This approach dramatically reduces bandwidth while preserving the structural integrity of the facial performance.</p>
+
+                <p>However, the challenge isn't purely bandwidth. Systems like <em>CineTalk</em> show us that human interaction relies heavily on affective context. A digital human must not only lip-sync accurately but also render appropriate emotional prosody and gestures. When these multimodal signals are compressed heavily, quantization errors don't just result in blurry pixels—they result in "uncanny" expressions where the audio emotion and facial geometry misalign.</p>
+
+                <p>In our current work at the GCL Lab, we are tackling this exact bottleneck. By integrating the multimodal emotion extraction directly into the compression feedback loop, we can allocate "bits" not just based on spatial frequency, but on semantic importance. A subtle smirk or a momentary furrowing of the brow—highly sensitive to human perception—receives priority preservation, even if it occupies very few pixels.</p>
+
+                <p>Ultimately, the future of digital avatars isn't just about rendering better pixels; it's about communicating better intent. By shifting our focus from pixel-level fidelity to semantic and emotional fidelity, we pave the way for real-time, highly expressive, and bandwidth-efficient interactive dialogue systems.</p>
+            </article>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Yayun Xiao. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
