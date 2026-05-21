@@ -49,11 +49,11 @@ a:hover {
   background-color: var(--color-bg);
   border-bottom: 1px solid var(--color-border);
   z-index: 100;
-  padding: 12px 0;
+  padding: 14px 0;
 }
 
 .masthead-inner {
-  width: min(980px, calc(100% - 36px));
+  width: min(980px, calc(100% - 64px));
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -75,24 +75,27 @@ a:hover {
 .site-nav a {
   color: var(--color-nav);
   text-transform: uppercase;
-  font-size: 12px;
-  font-weight: bold;
-  padding: 4px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 6px 10px;
   border-radius: 4px;
+  transition: background-color 0.15s ease;
 }
 
 .site-nav a:hover {
   background-color: var(--color-surface);
+  text-decoration: none;
 }
 
 .page {
   display: grid;
   grid-template-columns: 190px minmax(0, 650px);
   column-gap: 64px;
-  width: min(980px, calc(100% - 36px));
+  width: min(980px, calc(100% - 64px));
   margin: 0 auto;
   padding-top: 80px;
-  padding-bottom: 60px;
+  padding-bottom: 80px;
 }
 
 .sidebar {
@@ -105,27 +108,30 @@ a:hover {
   width: 132px;
   height: 132px;
   border-radius: 50%;
-  border: 1px solid var(--color-primary);
+  border: 2px solid var(--color-border);
   display: block;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
 .sidebar h1 {
-  font-size: 20px;
-  margin: 0 0 4px 0;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 2px 0;
   color: var(--color-text);
+  letter-spacing: -0.01em;
 }
 
 .chinese-name {
   color: var(--color-secondary);
-  font-size: 14px;
-  margin: 0 0 8px 0;
+  font-size: 13px;
+  margin: 0 0 10px 0;
 }
 
 .bio {
   color: var(--color-text-muted);
-  font-size: 13px;
-  margin: 0 0 16px 0;
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 0 0 18px 0;
 }
 
 .author-links {
@@ -157,27 +163,32 @@ a:hover {
 }
 
 .content section {
-  margin-bottom: 48px;
+  margin-bottom: 40px;
+}
+
+.content section:last-child {
+  margin-bottom: 0;
 }
 
 .content h2 {
-  font-size: 22px;
-  font-weight: bold;
+  font-size: 20px;
+  font-weight: 700;
   color: var(--color-primary);
   border-bottom: 1px solid var(--color-border);
   padding-bottom: 8px;
   margin-top: 0;
   margin-bottom: 16px;
+  letter-spacing: -0.01em;
 }
 
 .content h3 {
-  font-size: 20px;
-  font-weight: bold;
-  color: var(--color-primary);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text);
   border-bottom: 1px solid var(--color-border);
-  padding-bottom: 6px;
-  margin-top: 24px;
-  margin-bottom: 12px;
+  padding-bottom: 5px;
+  margin-top: 28px;
+  margin-bottom: 10px;
 }
 
 .content p {
@@ -251,16 +262,18 @@ a:hover {
   grid-template-columns: 40px minmax(0, 1fr);
   column-gap: 16px;
   align-items: start;
-  padding: 20px;
-  background-color: var(--color-bg);
+  padding: 20px 24px;
+  background-color: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: 8px;
+  border-radius: 6px;
   margin-top: 16px;
   text-decoration: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .blog-card:hover {
   border-color: var(--color-accent);
+  box-shadow: 0 2px 8px rgba(30, 86, 49, 0.06);
   text-decoration: none;
 }
 
@@ -309,7 +322,12 @@ a:hover {
 
 .research-item,
 .education-item {
-  margin-bottom: 24px;
+  margin-bottom: 28px;
+}
+
+.research-item:last-child,
+.education-item:last-child {
+  margin-bottom: 0;
 }
 
 .meta {
@@ -321,8 +339,9 @@ a:hover {
 .research-item ul,
 .education-item ul,
 .content section ul {
-  padding-left: 20px;
+  padding-left: 18px;
   margin: 8px 0;
+  line-height: 1.7;
 }
 
 .research-item li,
@@ -334,8 +353,7 @@ a:hover {
 .article-shell {
   max-width: 650px;
   margin: 0 auto;
-  padding-top: 80px;
-  padding-bottom: 60px;
+  padding: 80px 32px 80px;
 }
 
 .article-header {
@@ -364,11 +382,11 @@ a:hover {
 
 .site-footer {
   text-align: center;
-  padding: 32px 0;
+  padding: 32px 32px;
   border-top: 1px solid var(--color-border);
   font-size: 13px;
   color: var(--color-text-muted);
-  margin-top: 48px;
+  margin-top: 0;
 }
 
 @media (max-width: 760px) {
@@ -376,8 +394,9 @@ a:hover {
     grid-template-columns: 1fr;
     column-gap: 0;
     row-gap: 32px;
+    width: calc(100% - 48px);
   }
-  
+
   .sidebar {
     position: static;
   }
@@ -386,23 +405,46 @@ a:hover {
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
+    width: calc(100% - 48px);
   }
-  
+
   .site-nav {
     flex-wrap: wrap;
     gap: 8px;
   }
-  
-  .page, .article-shell {
+
+  .page {
     padding-top: 120px;
+  }
+
+  .article-shell {
+    padding-top: 120px;
+  }
+
+  .article-summary {
+    padding-left: 12px;
   }
 }
 
 @media (max-width: 460px) {
+  .page {
+    width: calc(100% - 36px);
+  }
+
+  .masthead-inner {
+    width: calc(100% - 36px);
+  }
+
   .item-header {
     flex-direction: column;
   }
+
   .item-meta {
     margin-top: 4px;
+  }
+
+  .article-shell {
+    padding-left: 18px;
+    padding-right: 18px;
   }
 }
